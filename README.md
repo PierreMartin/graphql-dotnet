@@ -15,17 +15,21 @@ GraphiQL Server     => `localhost:5001/graphql`
 GraphQL Playground  => `localhost:5001/ui/playground`
 
 In graphiql (localhost:5001/graphql) :
+
 ## ALL
-```query {
+```
+query {
     users {
         FirstName,
         LastName,
         Id
     }
-}```
+}
+```
 
 ## ONE
-```query {
+```
+query {
   user(id: "1") {
         FirstName,
         LastName,
@@ -35,7 +39,8 @@ In graphiql (localhost:5001/graphql) :
 ```
 
 ## SET
-```mutation {
+```
+mutation {
   addUser(FirstName: "toto" ) {
     FirstName
   }
