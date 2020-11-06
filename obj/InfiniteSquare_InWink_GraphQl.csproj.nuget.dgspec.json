@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/pierremartin/sites/InfiniteSquare_InWink_GraphQl/InfiniteSquare_InWink_GraphQl.csproj": {}
+  },
+  "projects": {
+    "/Users/pierremartin/sites/InfiniteSquare_InWink_GraphQl/InfiniteSquare_InWink_GraphQl.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/pierremartin/sites/InfiniteSquare_InWink_GraphQl/InfiniteSquare_InWink_GraphQl.csproj",
+        "projectName": "InfiniteSquare_InWink_GraphQl",
+        "projectPath": "/Users/pierremartin/sites/InfiniteSquare_InWink_GraphQl/InfiniteSquare_InWink_GraphQl.csproj",
+        "packagesPath": "/Users/pierremartin/.nuget/packages/",
+        "outputPath": "/Users/pierremartin/sites/InfiniteSquare_InWink_GraphQl/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/pierremartin/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
