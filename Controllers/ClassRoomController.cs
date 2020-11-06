@@ -6,6 +6,7 @@ using InfiniteSquare_InWink_GraphQl.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
+// TODO remove this file, not GraphQL
 namespace InfiniteSquare_InWink_GraphQl.Controllers
 {
     [ApiController]

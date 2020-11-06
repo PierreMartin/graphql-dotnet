@@ -1,3 +1,5 @@
+
+// TODO remove this file, not GraphQL
 public class Student
 {
     public int Id {get; set;}

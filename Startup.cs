@@ -10,7 +10,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using GraphQL;
+using GraphQL.Server;
+using GraphQL.Types;
+using InfiniteSquare_InWink_GraphQl;
 using InfiniteSquare_InWink_GraphQl.Services;
+using InfiniteSquare_InWink_GraphQl.Queries;
+using InfiniteSquare_InWink_GraphQl.Types;
+using InfiniteSquare_InWink_GraphQl.FakeData;
 
 namespace InfiniteSquare_InWink_GraphQl
 {
@@ -26,9 +34,25 @@ namespace InfiniteSquare_InWink_GraphQl
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(); // TODO remove
+            services.AddSingleton<IClassroomService, ClassroomService>(); // TODO remove
 
-            services.AddSingleton<IClassroomService, ClassroomService>();
+            services.AddSingleton<InWinkData>();
+            services.AddSingleton<InWinkQuery>();
+            // services.AddSingleton<InWinkMutation>(); // finish it
+            services.AddSingleton<UserType>();
+            services.AddSingleton<ISchema, InWinkSchema>(); // TODO pas bon ??
+
+            services.AddLogging(builder => builder.AddConsole());
+            services.AddHttpContextAccessor();
+
+            services.AddGraphQL(options =>
+            {
+                options.EnableMetrics = true;
+            })
+            .AddErrorInfoProvider(opt => opt.ExposeExceptionStackTrace = true)
+            .AddSystemTextJson();
+            // .AddUserContextBuilder(httpContext => new GraphQLUserContext { User = httpContext.User });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +74,11 @@ namespace InfiniteSquare_InWink_GraphQl
                 endpoints.MapControllers();
             });
 
-            app.UseGraphiQLServer(); // For GraphQl Server - will send requests to "/graphql" GraphQL API endpoint.
+            // add http for Schema at default url /graphql
+            app.UseGraphQL<InWinkSchema>();
+
+            // use graphql-playground at default url /ui/playground
+            app.UseGraphQLPlayground();
         }
     }
 }
