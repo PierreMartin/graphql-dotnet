@@ -49,6 +49,8 @@ namespace InfiniteSquare_InWink_GraphQl
             {
                 endpoints.MapControllers();
             });
+
+            app.UseGraphiQLServer(); // For GraphQl Server - will send requests to "/graphql" GraphQL API endpoint.
         }
     }
 }
