@@ -12,6 +12,7 @@ namespace InfiniteSquare_InWink_GraphQl.Queries
         {
             Name = "Query";
 
+            // User:
             Field<UserType>(
                 "user",
                 resolve: context => data.GetUsers()
@@ -20,9 +21,23 @@ namespace InfiniteSquare_InWink_GraphQl.Queries
             Field<UserType>(
                 "user",
                 arguments: new QueryArguments(
-                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "id", Description = "id of the human" }
+                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "id", Description = "id of the user" }
                 ),
                 resolve: context => data.GetUserByIdAsync(context.GetArgument<string>("id"))
+            );
+
+            // Post:
+            Field<PostType>(
+                "post",
+                resolve: context => data.GetPosts()
+            );
+
+            Field<PostType>(
+                "post",
+                arguments: new QueryArguments(
+                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "id", Description = "id of the post" }
+                ),
+                resolve: context => data.GetPostsByIdAsync(context.GetArgument<string>("id"))
             );
         }
     }

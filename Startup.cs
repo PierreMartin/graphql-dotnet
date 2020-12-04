@@ -15,7 +15,6 @@ using GraphQL;
 using GraphQL.Server;
 using GraphQL.Types;
 using InfiniteSquare_InWink_GraphQl;
-using InfiniteSquare_InWink_GraphQl.Services;
 using InfiniteSquare_InWink_GraphQl.Queries;
 using InfiniteSquare_InWink_GraphQl.Types;
 using InfiniteSquare_InWink_GraphQl.FakeData;
@@ -34,14 +33,12 @@ namespace InfiniteSquare_InWink_GraphQl
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers(); // TODO remove
-            services.AddSingleton<IClassroomService, ClassroomService>(); // TODO remove
-
             services.AddSingleton<InWinkData>();
             services.AddSingleton<InWinkQuery>();
             // services.AddSingleton<InWinkMutation>(); // finish it
             services.AddSingleton<UserType>();
-            services.AddSingleton<ISchema, InWinkSchema>(); // TODO pas bon ??
+            services.AddSingleton<PostType>();
+            services.AddSingleton<ISchema, InWinkSchema>();
 
             services.AddLogging(builder => builder.AddConsole());
             services.AddHttpContextAccessor();
@@ -63,19 +60,19 @@ namespace InfiniteSquare_InWink_GraphQl
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
+            // app.UseRouting();
+            // app.UseAuthorization();
 
-            app.UseRouting();
-
-            app.UseAuthorization();
-
+            /*
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+            */
 
             // add http for Schema at default url /graphql
-            app.UseGraphQL<InWinkSchema>();
+            app.UseGraphQL<ISchema>();
 
             // use graphql-playground at default url /ui/playground
             app.UseGraphQLPlayground();
