@@ -20,9 +20,9 @@ For tests queries, go to graphiql localhost:5001/ui/playground
 ```
 query {
     users {
-        FirstName,
-        LastName,
-        Id
+        firstName,
+        lastName,
+        id
     }
 }
 ```
@@ -31,9 +31,9 @@ query {
 ```
 query {
   user(id: "1") {
-        FirstName,
-        LastName,
-        Id
+        firstName,
+        lastName,
+        id
   }
 }
 ```
@@ -42,7 +42,7 @@ query {
 ```
 mutation {
   addUser(FirstName: "toto" ) {
-    FirstName
+    firstName
   }
 }
 ```
