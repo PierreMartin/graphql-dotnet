@@ -14,7 +14,7 @@ dotnet add package Newtonsoft.Json --version 12.0.3
 GraphiQL Server     => `localhost:5001/graphql`
 GraphQL Playground  => `localhost:5001/ui/playground`
 
-For tests queries, go to graphiql (localhost:5001/graphql) :
+For tests queries, go to graphiql localhost:5001/ui/playground
 
 ## ALL
 ```
