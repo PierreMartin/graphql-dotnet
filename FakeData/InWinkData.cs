@@ -47,12 +47,12 @@ namespace InfiniteSquare_InWink_GraphQl.FakeData
 
         public IEnumerable<User> GetUsers()
         {
-            return _users;
+            return _users.ToList();
         }
 
         public IEnumerable<Post> GetPosts()
         {
-            return _posts;
+            return _posts.ToList();
         }
 
         public Task<User> GetUserByIdAsync(string id)
