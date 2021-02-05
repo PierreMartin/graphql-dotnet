@@ -11,7 +11,7 @@
 - dotnet add package GraphQL.Server.Transports.AspNetCore --version 4.2.1
 - dotnet add package Newtonsoft.Json --version 12.0.3
 
-GraphiQL Server at `localhost:5001/graphql`
+GraphiQL Server at `localhost:5001/ui/playground`
 
 ## GET ALL
 ```

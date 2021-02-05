@@ -13,7 +13,7 @@ namespace InfiniteSquare_InWink_GraphQl.Queries
             Name = "Query";
 
             // User:
-            Field<UserType>(
+            Field<ListGraphType<UserType>>(
                 "users",
                 resolve: context => data.GetUsers()
             );
@@ -27,7 +27,7 @@ namespace InfiniteSquare_InWink_GraphQl.Queries
             );
 
             // Post:
-            Field<PostType>(
+            Field<ListGraphType<PostType>>(
                 "posts",
                 resolve: context => data.GetPosts()
             );
